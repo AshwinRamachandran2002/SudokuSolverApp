@@ -1,32 +1,28 @@
 from django.shortcuts import render
 
-# Create your views here.
-## Views.py
-from django.shortcuts import render
-#from scipy.misc.pilutil import imread, imresize
-import numpy as np
-import re
-import sys
-import os
-sys.path.append(os.path.abspath("./model"))
-#from .utils import *
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-global model, graph
-model, graph = init()
-import base64
-
-OUTPUT = os.path.join(os.path.dirname(__file__), 'output.png')
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import math
+import h5py
+import matplotlib.pyplot as plt
+import scipy
 from PIL import Image
-from io import BytesIO
-def getI420FromBase64(codec):
-    base64_data = re.sub('^data:image/.+;base64,', '', codec)
-    byte_data = base64.b64decode(base64_data)
-    image_data = BytesIO(byte_data)
-    img = Image.open(image_data)
-    img.save(OUTPUT)
-def convertImage(imgData):
-    getI420FromBase64(imgData)
+from scipy import ndimage
+import tensorflow as tf
+from tensorflow.python.framework import ops
+%matplotlib inline
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Activation, Dropout, Dense, Flatten, BatchNormalization, Conv2D, MaxPooling2D
+from tensorflow.keras.optimizers import RMSprop,Adam
+from tensorflow.keras import backend as K
+from tensorflow.keras.preprocessing import image
+from sklearn.metrics import accuracy_score, classification_report
+import os, random
+import cv2
+from glob import glob
+import sklearn
+from sklearn.model_selection import train_test_split
+
 @csrf_exempt
 def predict(request):
     imgData = request.POST.get('img')

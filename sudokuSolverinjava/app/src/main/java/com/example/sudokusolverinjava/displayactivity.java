@@ -11,11 +11,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class displayactivity extends AppCompatActivity {
+    private static final Object URL = "";
     Intent intent;
     Bitmap message;
-    DigitsDetector mnistClassifier;
-    final int PIXEL_WIDTH = 28;
+
     private final String TAG = this.getClass().getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,12 +32,13 @@ public class displayactivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                TextView[] res = new TextView[9];
-                for(int i = 1; i <= 9; i++) {
-                    String ida="digit"+i;
-                    int resID = getResources().getIdentifier(ida, "id", getPackageName());
-                    res[i] = ((TextView) findViewById(resID));
-                }
+                //onDetectClicked();
+//                TextView[] res = new TextView[9];
+//                for(int i = 1; i <= 9; i++) {
+//                    String ida="digit"+i;
+//                    int resID = getResources().getIdentifier(ida, "id", getPackageName());
+//                    res[i] = ((TextView) findViewById(resID));
+//                }
 //                CharSequence digit=res.getText();
 //                Log.d(TAG,digit.toString());
 //                String newdigit=digit.toString();
@@ -57,15 +59,8 @@ public class displayactivity extends AppCompatActivity {
             }
         });
     }
-
-
-    private void onDetectClicked() {
-        TextView res = findViewById(R.id.digit1);
-        Bitmap scaledBitmap = Bitmap.createScaledBitmap(message, PIXEL_WIDTH, PIXEL_WIDTH, false);
-        int digit = mnistClassifier.classify(scaledBitmap);
-        res.setText(digit);
-    }
-
 }
+
+
 
 
