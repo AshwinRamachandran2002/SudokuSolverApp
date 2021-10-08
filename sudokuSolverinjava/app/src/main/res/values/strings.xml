@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">sudokuSolverinjava</string>
+    <string name="app_name">Ashwin\'s Sudoku Solver</string>
+    <string name="full_solve_label">Finalize changes and Solve Fully</string>
+    <string name="clear_puzzle_label">Clear Board</string>
 </resources>
