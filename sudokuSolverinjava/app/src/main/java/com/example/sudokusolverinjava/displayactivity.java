@@ -35,6 +35,11 @@ public class displayactivity extends AppCompatActivity {
 
     final static int DEFAULT_BOARD_SIZE = 9;
 
+    private static final Object URL = "";
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,10 +59,26 @@ public class displayactivity extends AppCompatActivity {
         mClearBoardButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 clearEditTexts();
                 mBoard.deleteData();
                 if (!mFullySolveButton.isEnabled())
                     mFullySolveButton.setEnabled(true);
+
+                //onDetectClicked();
+//                TextView[] res = new TextView[9];
+//                for(int i = 1; i <= 9; i++) {
+//                    String ida="digit"+i;
+//                    int resID = getResources().getIdentifier(ida, "id", getPackageName());
+//                    res[i] = ((TextView) findViewById(resID));
+//                }
+//                CharSequence digit=res.getText();
+//                Log.d(TAG,digit.toString());
+//                String newdigit=digit.toString();
+//                if(newdigit=="6"){
+//
+//
+//                }
             }
         });
 
@@ -115,6 +136,7 @@ public class displayactivity extends AppCompatActivity {
 
         String boardData;
     }
+}
 
     private void checkEntry(int editTextId) {
         TableEntryEditText tempET;
@@ -214,10 +236,13 @@ public class displayactivity extends AppCompatActivity {
                 tableRow.addView(editText);
             }
 
+<<<<<<< HEAD
             mTableLayout.addView(tableRow); //add the row to the table
         }
     }
 
 }
+=======
+>>>>>>> main
 
 
