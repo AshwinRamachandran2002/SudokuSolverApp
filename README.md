@@ -10,7 +10,11 @@ detect this(Online LEarning)
 
 # The algorithm
 I have tried to explore the strategies that one could use including hidden pairs , nake pairs and simple coloring
+
 The third is a work still in progress
+
+Inspiration : https://medium.com/@davidcarmel/solving-sudoku-by-heuristic-search-b0c2b2c5346e
+
 
 # OpenCV Algorithm
 https://colab.research.google.com/drive/1vJDPYOZ8_Cl5-0ZmBICJcwpeTwFoBIuf?usp=sharing
